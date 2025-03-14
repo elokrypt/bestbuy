@@ -1,7 +1,7 @@
 #  -*- coding: utf-8 -*-
 #  @filename products.py
 #  @author Marcel Bobolz
-#  @last_modified 2025-03-14T18:59:12.989Z
+#  @last_modified 2025-03-14T19:47:01.915Z
 """
 Implementation of OutOfStockError and Product-class.
 """
@@ -45,13 +45,17 @@ class Product:
         else:
             self._active = True
 
+    @property
+    def name(self) -> str:
+        return self._name
+
     def get_quantity(self) -> int:
         """
         Getter for quantity.
         """
         return self._quantity
 
-    def set_quantity(self, quantity):
+    def set_quantity(self, quantity: int):
         """
         Setter for quantity.
         """
@@ -89,7 +93,7 @@ class Product:
         """
         return f"{self._name}, Price: {self._price}, Quantity: {self._quantity}"
 
-    def buy(self, quantity) -> float:
+    def buy(self, quantity: int) -> float:
         """
         Updates the quantity of the product.
         Buys a given quantity of the product.
@@ -97,7 +101,7 @@ class Product:
         """
         if (self._quantity - quantity) < 0:
             raise OutOfStockError(f"Store cannot provide '{quantity}x {self._name}'.")
-        self._quantity -= quantity
+        self.quantity -= quantity
         return float(quantity) * self._price
 
 

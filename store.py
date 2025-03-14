@@ -1,7 +1,10 @@
 #  -*- coding: utf-8 -*-
 #  @filename store.py
 #  @author Marcel Bobolz
-#  @last_modified 2025-03-14T20:08:43.668Z
+#  @last_modified 2025-03-14T20:14:16.902Z
+"""
+Implements the Store class.
+"""
 
 from typing import Optional, List, Tuple
 from products import Product

@@ -1,7 +1,7 @@
 #  -*- coding: utf-8 -*-
 #  @filename products.py
 #  @author Marcel Bobolz
-#  @last_modified 2025-03-14T19:47:01.915Z
+#  @last_modified 2025-03-14T20:33:38.887Z
 """
 Implementation of OutOfStockError and Product-class.
 """
@@ -91,7 +91,7 @@ class Product:
         """
         Returns a string that represents the product.
         """
-        return f"{self._name}, Price: {self._price}, Quantity: {self._quantity}"
+        return f"{self._name}, Price: ${self._price}, Quantity: {self._quantity}"
 
     def buy(self, quantity: int) -> float:
         """

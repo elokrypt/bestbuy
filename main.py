@@ -1,14 +1,15 @@
 #  -*- coding: utf-8 -*-
 #  @filename main.py
 #  @author Marcel Bobolz
-#  @last_modified 2025-03-14T21:49:17.493Z
+#  @last_modified 2025-03-14T21:54:38.491Z
 """
 Implements the Best Buy - Store CLI.
 """
 
+from typing import List, Tuple
+
 from products import Product, OutOfStockError
 from store import Store, ProductOrder
-from typing import List, Tuple
 
 STORE_MENU = """
    Store Menu
@@ -21,6 +22,9 @@ Please choose a number: """
 
 
 def show_all_products(products: List[Product]):
+    """
+    Prints out all products in a list of products.
+    """
     lino = 0
     print("\n-----")
     for product in products:

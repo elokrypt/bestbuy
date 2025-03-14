@@ -1,14 +1,13 @@
 #  -*- coding: utf-8 -*-
 #  @filename store.py
 #  @author Marcel Bobolz
-#  @last_modified 2025-03-14T20:14:16.902Z
+#  @last_modified 2025-03-14T21:56:38.191Z
 """
 Implements the Store class.
 """
 
 from typing import Optional, List, Tuple
 from products import Product
-
 
 ProductOrder = Tuple[Product, int]
 
@@ -19,7 +18,7 @@ class Store:
     and will allow the user to make a purchase of multiple products at once.
     """
 
-    def __init__(self, products: Optional[List[Product]] = []):
+    def __init__(self, products: Optional[List[Product]]):
         for product in products:
             if not isinstance(product, Product):
                 raise ValueError("Can only add 'Product'(s) to the store.")
@@ -58,11 +57,11 @@ class Store:
         """
         Returns all products in the store that are active.
         """
-        products: List[Product] = []
+        products_: List[Product] = []
         for product in self._products:
             if product.is_active():
-                products.append(product)
-        return products
+                products_.append(product)
+        return products_
 
     def order(self, shopping_list: List[ProductOrder]) -> float:
         """

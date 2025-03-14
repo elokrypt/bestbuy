@@ -1,7 +1,7 @@
 #  -*- coding: utf-8 -*-
 #  @filename products.py
 #  @author Marcel Bobolz
-#  @last_modified 2025-03-14T20:33:38.887Z
+#  @last_modified 2025-03-14T21:57:28.629Z
 """
 Implementation of OutOfStockError and Product-class.
 """
@@ -47,6 +47,9 @@ class Product:
 
     @property
     def name(self) -> str:
+        """
+        Getter for product-name.
+        """
         return self._name
 
     def get_quantity(self) -> int:

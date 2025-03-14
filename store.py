@@ -1,7 +1,7 @@
 #  -*- coding: utf-8 -*-
 #  @filename store.py
 #  @author Marcel Bobolz
-#  @last_modified 2025-03-14T21:58:47.898Z
+#  @last_modified 2025-03-14T22:00:01.128Z
 """
 Implements the Store class.
 """
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     ]
 
     best_buy = Store(product_list)
-    products_ = best_buy.get_all_products()
+    _products = best_buy.get_all_products()
     print(best_buy.get_total_quantity())
-    print(best_buy.order([(products_[0], 1), (products_[1], 2)]))
-    best_buy.remove_product(products_[2])
+    print(best_buy.order([(_products[0], 1), (_products[1], 2)]))
+    best_buy.remove_product(_products[2])

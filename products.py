@@ -34,7 +34,7 @@ class Product:
         if len(name) == 0:
             raise ValueError("argument 'name' cannot be an empty string.")
         self._name = name
-        if int(price) < 0:
+        if float(price) < 0.0:
             raise ValueError("argument 'price' cannot be negative.")
         self._price = price
         if quantity < 0:
@@ -52,19 +52,19 @@ class Product:
         """
         return self._name
 
-    def get_quantity(self) -> int:
+    def get_quantity(self) -> float:
         """
         Getter for quantity.
         """
-        return self._quantity
+        return float(self._quantity)
 
     def set_quantity(self, quantity: int):
         """
         Setter for quantity.
         """
-        if quantity < 0:
+        if quantity < 0.00:
             raise ValueError("argument 'quantity' cannot be negative.")
-        if quantity < 1:
+        if quantity < 1.00:
             self.deactivate()
         self._quantity = quantity
 
@@ -94,7 +94,9 @@ class Product:
         """
         Returns a string that represents the product.
         """
-        return f"{self._name}, Price: ${self._price}, Quantity: {self._quantity}"
+        return (
+            f"{self._name}, Price: ${self._price}, Quantity: {self._quantity}"
+        )
 
     def buy(self, quantity: int) -> float:
         """
@@ -103,7 +105,9 @@ class Product:
         Returns the total price (float) of the purchase.
         """
         if (self._quantity - quantity) < 0:
-            raise OutOfStockError(f"Store cannot provide '{quantity}x {self._name}'.")
+            raise OutOfStockError(
+                f"Store cannot provide '{quantity}x {self._name}'."
+            )
         self.quantity -= quantity
         return float(quantity) * self._price
 

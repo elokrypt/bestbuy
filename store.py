@@ -22,7 +22,7 @@ class Store:
         for product in products:
             if not isinstance(product, Product):
                 raise ValueError("Can only add 'Product'(s) to the store.")
-        self._products = products
+        self._products = products or []
 
     def add_product(self, product: Product):
         """
@@ -41,7 +41,7 @@ class Store:
         index = 0
         for _product in self._products:
             if _product.name == product.name:
-                del self._products[index]
+                self._products.pop(index)
             index += 1
 
     def get_total_quantity(self) -> int:

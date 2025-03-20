@@ -1,7 +1,6 @@
 #  -*- coding: utf-8 -*-
 #  @filename main.py
 #  @author Marcel Bobolz
-#  @last_modified 2025-03-14T21:54:38.491Z
 """
 Implements the Best Buy - Store CLI.
 """
@@ -49,7 +48,9 @@ def start(store: Store):
             case 1:
                 show_all_products(products)
             case 2:
-                print(f"\nTotal of {store.get_total_quantity()} items in store\n")
+                print(
+                    f"\nTotal of {store.get_total_quantity()} items in store\n"
+                )
             case 3:
                 prod_num: str | int
                 prod_qty: str | int
@@ -73,9 +74,13 @@ def start(store: Store):
                 if len(shopping_list) > 0:
                     try:
                         total_price = store.order(shopping_list)
-                        print(f"********\nOrder made! Total payment ${total_price:.2f}")
+                        print(
+                            f"********\nOrder made! Total payment ${total_price:.2f}"
+                        )
                     except OutOfStockError:
-                        print("Error while making order! Quantity larger than what exists.")
+                        print(
+                            "Error while making order! Quantity larger than what exists."
+                        )
             case 4:
                 do_quit = True
         continue
